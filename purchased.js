@@ -23,7 +23,7 @@ function loadModel() {
         .then(m => {
             model = m;
             document.body.classList.remove('loading');
-            resizeCanvas();
+            video.addEventListener('loadeddata', resizeCanvas);
             detectFrame();
         })
         .catch(error => {
@@ -166,4 +166,4 @@ function clearPurchases() {
     updatePurchaseSystemUI();
 }
 
-initializeApp();
+document.addEventListener('DOMContentLoaded', initializeApp);
